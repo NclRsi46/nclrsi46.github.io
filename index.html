@@ -1,128 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <title>Nicolas Rossi Portfolio - Cybersecurity Student</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Nicolas Rossi, cybersecurity student</title>
+  <meta name="description" content="Cybersecurity student at Pace University, focused on digital forensics, incident response, and detection.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nclrsi46.github.io/">
+  <meta property="og:title" content="Nicolas Rossi, cybersecurity student">
+  <meta property="og:description" content="Cybersecurity student at Pace University, focused on digital forensics, incident response, and detection.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">
-        <img src="images/NLogo.png" alt="N logo">
-        <span class="logo-text">Nicolas Rossi</span>
-      </a>
-      <nav class="site-nav">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="aboutme.html" class="nav-link">About</a>
-        <a href="projects.html" class="nav-link">Projects</a>
-        <a href="resume.html" class="nav-link">Resume</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-      </nav>
-    </div>
+  <header>
+    <h1>Nicolas Rossi <span class="pronouns">(He/Him)</span></h1>
+    <p>Cybersecurity student at Pace University, focused on digital forensics, incident response, and detection.</p>
+    <nav aria-label="Links">
+      <ul class="links">
+        <li><a href="Nicolas_Rossi_Resume.pdf">Resume (PDF)</a></li>
+        <li><a href="https://github.com/NclRsi46">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/nicolas-rossi2228462333">LinkedIn</a></li>
+        <li><a href="mailto:nicolas.g.rossi@pace.edu">Email</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="site-main">
-    <!-- Hero Section (text-only, left aligned) -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <p class="hero-kicker">Cybersecurity · Red Team · Blue Team</p>
-          <h1>Hi, I’m <span class="accent">Nicolas Rossi</span>.</h1>
-          <p class="hero-subtitle">
-            I’m a Cybersecurity student at Pace University, building skills to become a penetration tester.
-            I’m especially interested in red team work and offensive security, while staying grounded in
-            blue team concepts like log analysis, incident response, and system hardening.
-          </p>
-          <p class="hero-subtitle">
-            I compete in cybersecurity competitions, work on security-focused projects, and constantly
-            look for ways to turn what I learn into real, practical skills.
-          </p>
-          <div class="hero-actions">
-            <a href="projects.html" class="btn primary-btn">View Security Projects</a>
-            <a href="resume.html" class="btn secondary-btn">See My Experience</a>
-          </div>
-        </div>
-      </div>
+  <main>
+    <section aria-labelledby="projects">
+      <h2 id="projects">Projects</h2>
+
+      <h3><a href="https://github.com/NclRsi46/phishing-detection-ml">Phishing Domain Classifier</a></h3>
+      <p class="meta">Python, scikit-learn</p>
+      <p>This started as a team course project at Pace, and I wrote the implementation. The first version scored 99.46% accuracy, and that number came from a data leak: every benign example was a bare homepage while the phishing examples were full links, so the model learned that anything after the domain meant phishing. I rebuilt it to score the domain name only, with train and test splits grouped by phishing campaign, a time-based test, and recall measured at fixed false positive rates. Averaged over 10 splits, a character n-gram model catches 27.7% of phishing domains at a 1% false positive rate, against 12.7 to 13.7% for models on hand-built features. An audit traced much of that gain to abused TLDs, which change quickly, and to phishing-kit wording reused across campaigns.</p>
     </section>
 
-    <!-- Cybersecurity Snapshot -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">Cybersecurity Snapshot</h2>
-        <div class="card-grid">
-          <article class="card">
-            <h3>Goal: Penetration Testing</h3>
-            <p>
-              I’m working toward a future role as a penetration tester, learning how attackers think and
-              how to test systems ethically to strengthen them.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Competitions &amp; Foundations</h3>
-            <p>
-              National Cyber League competitor (639 / 7,876 nationally and 1st in my club cohort), ISC² Member,
-              NECCDC Team Member, and ISC² Certified in Cybersecurity (CC) — building both red and blue team skills.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Hands-On Learning</h3>
-            <p>
-              Gaining experience through labs, CTF-style challenges, and projects like phishing detection
-              with machine learning, while practicing core networking and system concepts.
-            </p>
-          </article>
-        </div>
-      </div>
+    <section aria-labelledby="experience">
+      <h2 id="experience">Experience</h2>
+
+      <h3>Corveonic LLC</h3>
+      <p class="meta">Co-Founder &amp; Security Lead, Jul 2026 to present</p>
+      <ul>
+        <li>Co-founded an AI and workflow automation consultancy and delivered its first paid engagement.</li>
+        <li>Built an append-only audit log in Supabase Postgres, enforced by a database trigger, and hardened client portal access with forced row-level security and short-lived scoped JWTs.</li>
+        <li>Built a GitHub Actions gate, using gitleaks and a custom Python linter, that blocks pull requests containing secrets or PII.</li>
+      </ul>
+
+      <h3>Pace University ITS</h3>
+      <p class="meta">Tech Zone &amp; Client Support Office Student Assistant, Nov 2025 to present</p>
+      <ul>
+        <li>Collected forensic artifacts with KAPE from a potentially compromised lab workstation with the ITS supervisor, then escalated the collection to Pace’s security team.</li>
+        <li>Recognized a phishing email from its indicators and routed the user to Pace’s security team for reporting.</li>
+        <li>Resolve walk-in tickets in TeamDynamix for 106 workstations, and verify identity before account unlocks and password resets.</li>
+      </ul>
     </section>
 
-    <!-- Core Skills -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">Core Security Skills</h2>
-        <div class="card-grid">
-          <article class="card">
-            <h3>Offensive &amp; Defensive Mindset</h3>
-            <p>
-              Interested in penetration testing, reconnaissance, and understanding attack paths,
-              balanced with defensive measures such as monitoring, detection, and response.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Technical Stack</h3>
-            <p>
-              Working with Linux and Windows environments, networking basics, scripting with Python,
-              and using tools common in CTFs and security labs.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Projects &amp; Competitions</h3>
-            <p>
-              Building projects around phishing detection, participating in NCL and NECCDC competitions,
-              and steadily developing a portfolio focused on real-world security problems.
-            </p>
-          </article>
-        </div>
-      </div>
+    <section aria-labelledby="competitions">
+      <h2 id="competitions">Competitions</h2>
+      <ul class="entries">
+        <li><strong>NSA Codebreaker Challenge</strong> <span class="meta">Sep 2026 to present</span><br>
+          Solved Tasks 1 to 3: log analysis, memory forensics with Volatility 3, and reverse engineering a binary with Ghidra.</li>
+        <li><strong>Collegiate Penetration Testing Competition (CPTC)</strong> <span class="meta">Sep 2026 to present</span><br>
+          Advanced past the national qualifier to Regionals (Oct 24, 2026), contributing to Pace’s submitted technical assessment.</li>
+        <li><strong>Northeast Collegiate Cyber Defense Competition (NECCDC)</strong> <span class="meta">Jan to Mar 2026</span><br>
+          Advanced to Regionals with Pace’s team. Managed Teleport for privileged access control, hardened Linux systems, and reviewed Teleport audit logs and session recordings for signs of red team activity.</li>
+        <li><strong>National Cyber League (NCL)</strong> <span class="meta">Oct to Nov 2025</span><br>
+          Ranked 639th of 7,876 nationally (top 8% in the individual game) and 1st at Pace University.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="education">
+      <h2 id="education">Education</h2>
+      <p>Pace University, Seidenberg School of Computer Science and Information Systems<br>
+        B.S. in Cybersecurity, Minor in Italian Studies, expected Dec 2027. GPA 3.89, Dean’s List First Honors (Spring 2025 to Spring 2026).</p>
+      <p>ISC2 Certified in Cybersecurity (CC)</p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; 2026 Nicolas Rossi. All rights reserved. <br>
-        Email: <a href="mailto:ngrossi46@gmail.com">ngrossi46@gmail.com</a>
-      </p>
-      <div class="social-icon">
-        <a href="https://www.linkedin.com/login/" target="_blank" rel="noopener">
-          <img src="images/linkedin-logo.png" alt="LinkedIn">
-        </a>
-        <a href="https://github.com/Nrossi8" target="_blank" rel="noopener">
-          <img src="images/github-logo.png" alt="GitHub">
-        </a>
-      </div>
-    </div>
+  <footer>
+    <p>2026 Nicolas Rossi</p>
   </footer>
 </body>
 </html>
