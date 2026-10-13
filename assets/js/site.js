@@ -24,9 +24,13 @@
     document.querySelectorAll("[data-copy]").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var status = btn.parentNode.querySelector("[data-copy-status]");
-        navigator.clipboard.writeText(btn.getAttribute("data-copy")).then(function () {
-          if (status) { status.textContent = "Copied"; setTimeout(function () { status.textContent = ""; }, 2000); }
-        });
+        function show(msg) {
+          if (!status) return;
+          status.textContent = msg;
+          setTimeout(function () { status.textContent = ""; }, 2000);
+        }
+        // Browsers can deny clipboard writes (permissions, embedded frames); say so instead of failing silently.
+        navigator.clipboard.writeText(btn.getAttribute("data-copy")).then(function () { show("Copied"); }, function () { show("Copy failed"); });
       });
     });
   });

@@ -41,7 +41,8 @@ Fonts are self-hosted WOFF2 under `assets/fonts/` with their OFL licenses. Nothi
 - `.sheet`: max 68rem, centered. Gutter 1rem on phones, 2rem from 48rem up.
 - Header strip: a bordered surface bar with the site code, nav, and theme button. It sits directly on the page's first bordered box.
 - Home: the profile sidebar (17rem, sticky) beside the content from 56rem up, stacked below that.
-- Inner pages: a header block of ruled cells (photo or title plus key/value cells), then numbered sections.
+- Inner pages (`_layouts/page.html`): a header block of ruled cells (photo, title, then key/value cells from `kv:` front matter), then numbered sections. With no `kv:` cells the block drops to two columns (`.block-short`).
+- Key/value rows (`dl.rows`, Contact): a mono label column of 9.5rem beside the value from 40rem up, stacked below that, with hairline rules between rows.
 - A section head is a mono accent number (`01`) plus a serif heading over a 2px ink rule.
 - Tables are ruled with hairlines. Under 40rem each row becomes a stacked block and the header row is visually hidden.
 
@@ -79,7 +80,7 @@ Nothing else: no scroll-triggered animation, parallax, typing effects, or hover 
 
 ## JavaScript
 
-`assets/js/site.js` is progressive enhancement only. The theme and copy-email buttons ship `hidden`, and JS reveals them; with JS off the page is complete and has no dead controls. Theme cycles system → light → dark. It is stored in `localStorage`, and every read and write is wrapped in try/catch. No tracking and no third-party requests.
+`assets/js/site.js` is progressive enhancement only. The theme and copy-email buttons ship `hidden`, and JS reveals them; with JS off the page is complete and has no dead controls. Theme cycles system → light → dark. The copy button reports "Copied" or "Copy failed": browsers can deny clipboard writes, and a silent failure looks like a broken button. CSS and JS URLs carry `?v=<build time>` so returning visitors never pair new HTML with cached old assets. It is stored in `localStorage`, and every read and write is wrapped in try/catch. No tracking and no third-party requests.
 
 ## Content
 
