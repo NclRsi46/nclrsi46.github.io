@@ -83,7 +83,7 @@ button:hover { color: var(--ink); border-color: var(--muted); }
 .photo { display: flex; align-items: center; justify-content: center; }
 .photo img { display: block; width: 7.5rem; height: 7.5rem; border-radius: 50%; object-fit: cover; object-position: 50% 20%;
   background: var(--surface); box-shadow: 0 0 0 1px var(--rule); }
-@media (max-width: 52rem) {
+@media (max-width: 51.99rem) {
   .block .photo { justify-content: flex-start; padding: .75rem .9rem; }
   .photo img { width: 5.5rem; height: 5.5rem; }
 }
