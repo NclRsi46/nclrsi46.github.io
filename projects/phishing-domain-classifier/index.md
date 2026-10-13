@@ -45,7 +45,7 @@ At the default 0.5 threshold the false positive rate is above 20%, far too high 
     <div><dt>Character n-grams</dt><dd>Logistic Regression: 27.7% ± 4.8 recall at 1% FPR · 79.6% average precision</dd></div>
   </dl>
   <div class="prose">
-    <p>Domain level, mean ± standard deviation over the 10 splits. Most of the forest’s ± 7.9 comes from two splits where tied top scores leave no threshold under 1%. On full hostnames the n-gram model reaches 32.7% ± 3.2.</p>
+    <p>Domain level, mean ± standard deviation over the 10 splits. Most of the forest’s ± 7.9 comes from two splits where tied top scores leave no threshold under 1%.</p>
     <p>The threshold is read off each test split’s ROC curve, so recall at 1% FPR measures how well a model ranks domains, not a threshold you could deploy. A threshold picked on one split won’t land at exactly 1% on new data.</p>
   </div>
 </section>
@@ -57,7 +57,7 @@ The n-gram model roughly doubles recall at 1% FPR, but much of that gain isn't n
 
 The hand-built features sort TLDs into four groups, so .cfd, .icu, and .sbs look the same to them. Adding the full suffix takes their recall at 1% FPR from 13.7% to 19.4%, about 40% of the way to the n-gram model.
 
-Much of the rest is phishing-kit wording, like pl-oferta and coursier, that repeats across campaigns. On test names that share no 8-character substring with a training phishing name, recall at 1% FPR falls to 1.7–3.9% for the hand-feature models and 12.6% for the n-gram model.
+Much of the rest is phishing-kit wording, like pl-oferta and coursier, that repeats across campaigns. On domain names that share no 8-character substring with a training phishing name, recall at 1% FPR falls to 3.7–3.9% for the hand-feature models and 12.6% for the n-gram model.
 </div>
 </section>
 
