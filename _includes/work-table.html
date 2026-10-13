@@ -4,7 +4,7 @@
     {%- for row in include.rows %}
     <tr>
       <td class="code">{{ row.type | escape }}</td>
-      <td><h3>{% if row.url %}<a href="{{ row.url | relative_url }}">{{ row.title | escape }}</a>{% else %}{{ row.title | escape }}{% endif %}</h3><p>{{ row.text | escape }}</p></td>
+      <td><h3>{% if row.url %}<a href="{{ row.url | relative_url | escape }}">{{ row.title | escape }}</a>{% else %}{{ row.title | escape }}{% endif %}</h3><p>{{ row.text | escape }}</p></td>
       <td class="code">{{ row.detail | escape }}</td>
     </tr>
     {%- endfor %}

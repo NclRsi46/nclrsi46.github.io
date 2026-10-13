@@ -9,9 +9,9 @@ lede_from: status
       <section aria-labelledby="links">
         {% include sec-head.html n="01" id="links" title="Links" %}
         <dl class="rows">
-          <div><dt>Email</dt><dd><a href="mailto:{{ p.email }}">{{ p.email }}</a> <button type="button" data-copy="{{ p.email }}" hidden>Copy email</button> <span data-copy-status aria-live="polite"></span></dd></div>
-          <div><dt>LinkedIn</dt><dd><a href="{{ p.linkedin }}">{{ p.linkedin | remove_first: "https://" | remove_first: "www." }}</a></dd></div>
-          <div><dt>GitHub</dt><dd><a href="{{ p.github }}">{{ p.github | remove_first: "https://" }}</a></dd></div>
-          <div><dt>Resume</dt><dd><a href="{{ p.resume | relative_url }}">Resume (PDF)</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:{{ p.email | escape }}">{{ p.email | escape }}</a> <button type="button" data-copy="{{ p.email | escape }}" hidden>Copy email</button> <span data-copy-status aria-live="polite"></span></dd></div>
+          <div><dt>LinkedIn</dt><dd><a href="{{ p.linkedin | escape }}">{{ p.linkedin | remove_first: "https://" | remove_first: "www." | escape }}</a></dd></div>
+          <div><dt>GitHub</dt><dd><a href="{{ p.github | escape }}">{{ p.github | remove_first: "https://" | escape }}</a></dd></div>
+          <div><dt>Resume</dt><dd><a href="{{ p.resume | relative_url | escape }}">Resume (PDF)</a></dd></div>
         </dl>
       </section>

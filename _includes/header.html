@@ -4,7 +4,7 @@
       <nav aria-label="Site">
         <ul class="site-nav">
           {%- for item in site.data.nav %}
-          <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+          <li><a href="{{ item.url | relative_url | escape }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title | escape }}</a></li>
           {%- endfor %}
         </ul>
       </nav>

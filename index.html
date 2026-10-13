@@ -3,7 +3,7 @@ layout: home
 title: Home
 ---
         <section aria-labelledby="sel">
-          <p class="intro">{{ site.description }}</p>
+          <p class="intro">{{ site.description | escape }}</p>
           {% include sec-head.html n="01" id="sel" title="Selected work" %}
           {% include work-table.html rows=site.data.highlights %}
         </section>

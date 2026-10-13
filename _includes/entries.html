@@ -3,9 +3,9 @@
   <div class="entry">
     <p class="code">{{ e.when | escape }}</p>
     <div>
-      <h3>{% if e.url %}<a href="{{ e.url | relative_url }}">{{ e.title | escape }}</a>{% else %}{{ e.title | escape }}{% endif %}</h3>
+      <h3>{% if e.url %}<a href="{{ e.url | relative_url | escape }}">{{ e.title | escape }}</a>{% else %}{{ e.title | escape }}{% endif %}</h3>
       {%- if e.org %}
-      <p class="org">{% if e.org_url %}<a href="{{ e.org_url }}">{{ e.org | escape }}</a>{% else %}{{ e.org | escape }}{% endif %}</p>
+      <p class="org">{% if e.org_url %}<a href="{{ e.org_url | escape }}">{{ e.org | escape }}</a>{% else %}{{ e.org | escape }}{% endif %}</p>
       {%- endif %}
       {%- if e.bullets %}
       <ul>

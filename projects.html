@@ -4,15 +4,15 @@ permalink: /projects.html
 ---
 {%- assign to = '/projects/phishing-domain-classifier/' | relative_url -%}
 <!DOCTYPE html>
-<html lang="{{ site.lang }}">
+<html lang="{{ site.lang | escape }}">
 <head>
   <meta charset="utf-8">
-  <title>Redirecting · {{ site.title }}</title>
+  <title>Redirecting · {{ site.title | escape }}</title>
   <meta name="robots" content="noindex">
-  <link rel="canonical" href="{{ to | absolute_url }}">
-  <meta http-equiv="refresh" content="0; url={{ to }}">
+  <link rel="canonical" href="{{ to | absolute_url | escape }}">
+  <meta http-equiv="refresh" content="0; url={{ to | escape }}">
 </head>
 <body>
-  <p>This page moved to <a href="{{ to }}">Phishing Domain Classifier</a>.</p>
+  <p>This page moved to <a href="{{ to | escape }}">Phishing Domain Classifier</a>.</p>
 </body>
 </html>
