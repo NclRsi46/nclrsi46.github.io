@@ -9,6 +9,7 @@ links are listed, not fetched. Exits 1 if anything internal is broken.
 Usage: script/check-links.py [site_dir] [--origin https://nclrsi46.github.io]
 """
 import argparse
+import os
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -42,15 +43,24 @@ class Collector(HTMLParser):
                 self.links.append((f"meta[{prop}]", a.get("content") or ""))
 
 
+def exists_exact(site, rel):
+    """Path exists with this exact case. macOS disks ignore case; GitHub Pages does not."""
+    here = site
+    for part in [p for p in rel.split("/") if p]:
+        if not here.is_dir() or part not in os.listdir(here):
+            return False
+        here = here / part
+    return True
+
+
 def target_file(site, path):
     """Map a URL path to the file GitHub Pages would serve, or None."""
     rel = unquote(path).lstrip("/")
-    candidate = site / rel
-    if path.endswith("/") or candidate.is_dir():
-        candidate = candidate / "index.html"
-    if candidate.is_file():
-        return candidate
-    if not Path(rel).suffix and (site / (rel + ".html")).is_file():
+    if path.endswith("/") or (rel and exists_exact(site, rel) and (site / rel).is_dir()) or not rel:
+        rel = (rel.rstrip("/") + "/index.html").lstrip("/")
+    if exists_exact(site, rel) and (site / rel).is_file():
+        return site / rel
+    if not Path(rel).suffix and exists_exact(site, rel + ".html"):
         return site / (rel + ".html")  # Pages serves /foo from foo.html
     return None
 
