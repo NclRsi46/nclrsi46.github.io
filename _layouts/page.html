@@ -1,0 +1,20 @@
+---
+layout: default
+---
+{%- assign p = site.data.profile %}
+{%- if page.lede_from %}{% assign lede = p[page.lede_from] %}{% else %}{% assign lede = page.lede %}{% endif %}
+    <main>
+      <div class="block{% unless page.kv %} block-short{% endunless %}">
+        <div class="photo"><img src="{{ '/assets/img/headshot.webp' | relative_url | escape }}" alt="{{ p.name | escape }}" width="120" height="120"></div>
+        <div class="title">
+          <span class="lbl">{{ page.label | default: page.title | escape }}</span>
+          <h1>{{ page.title | escape }}</h1>
+          <p>{{ lede | escape }}</p>
+        </div>
+        {%- for item in page.kv %}
+        {%- if item.from %}{% assign v = p[item.from] %}{% else %}{% assign v = item.value %}{% endif %}
+        <div class="kv"><span class="k">{{ item.label | escape }}</span><p class="v">{% if item.link %}<a href="{{ v | relative_url | escape }}">{{ item.link | escape }}</a>{% else %}{{ v | escape }}{% endif %}</p></div>
+        {%- endfor %}
+      </div>
+{{ content }}
+    </main>

@@ -1,0 +1,14 @@
+# Home "Selected work" rows. Sources: resume PDF lines 13-18, 32-47; wording approved by Nick 2026-10-12.
+- type: Case study
+  title: Phishing Domain Classifier
+  url: /projects/phishing-domain-classifier/
+  text: A 99.46% accuracy score turned out to be a data leak. I rebuilt the evaluation around phishing campaigns and measured recall at fixed false-positive rates.
+  detail: Python, scikit-learn
+- type: Work
+  title: Corveonic LLC, Co-Founder & Security Lead
+  text: Append-only audit log, forced row-level security, and a CI gate that blocks secrets and PII.
+  detail: Jul 2026 – now
+- type: Competitions
+  title: Codebreaker, CPTC, NECCDC, NCL
+  text: NSA Codebreaker Tasks 1–3; advanced to CPTC and NECCDC Regionals; top 8% nationally in NCL’s individual game.
+  detail: 2025 – now

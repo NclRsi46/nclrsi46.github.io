@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- Source for assets/img/og-card.png (1200x630). Regenerate with script/og-card. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Newsreader"; src: url("../assets/fonts/newsreader/Newsreader-opsz-wght.woff2") format("woff2"); font-weight: 200 800; }
+  @font-face { font-family: "IBM Plex Mono"; src: url("../assets/fonts/ibm-plex-mono/IBMPlexMono-Regular-Latin1.woff2") format("woff2"); }
+  :root { --bg: #F4EFE0; --surface: #FBF8EE; --ink: #1E1D1A; --muted: #5F5B50; --rule: #BDB6A0; --accent: #1F5F46; }
+  html, body { margin: 0; width: 1200px; height: 630px; background: var(--bg); }
+  .card { box-sizing: border-box; position: absolute; inset: 40px; border: 1px solid var(--rule); display: flex; flex-direction: column; }
+  .strip { display: flex; justify-content: space-between; padding: 18px 28px; border-bottom: 1px solid var(--rule); background: var(--surface);
+    font: 400 20px/1 "IBM Plex Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); }
+  .strip span + span { color: var(--muted); }
+  .body { flex: 1; padding: 0 56px 48px; display: flex; flex-direction: column; justify-content: flex-end; }
+  h1 { font: 400 112px/1 "Newsreader", serif; letter-spacing: -.02em; color: var(--ink); margin: 0 0 24px; padding-bottom: 24px; border-bottom: 2px solid var(--ink); }
+  p { font: 400 36px/1.35 "Newsreader", serif; color: var(--ink); margin: 0; max-width: 980px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="strip"><span>N. Rossi / Cybersecurity</span><span>nclrsi46.github.io</span></div>
+    <div class="body">
+      <h1>Nicolas Rossi</h1>
+      <p>Cybersecurity student at Pace focused on digital forensics and incident response, with offensive experience from CPTC.</p>
+    </div>
+  </div>
+</body>
+</html>

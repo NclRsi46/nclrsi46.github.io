@@ -1,0 +1,22 @@
+---
+layout: default
+---
+{%- assign p = site.data.profile %}
+    <div class="layout">
+      <aside class="profile" aria-label="Profile">
+        <img class="face" src="{{ '/assets/img/headshot.webp' | relative_url | escape }}" alt="{{ p.name | escape }}" width="176" height="176">
+        <div class="who">
+          <h1>{{ p.name | escape }}</h1>
+          <span class="pron">({{ p.pronouns | escape }})</span>
+        </div>
+        <dl>
+          <div><dt>Focus</dt><dd>{{ p.focus | escape }}</dd></div>
+          <div><dt>Status</dt><dd><span class="status" aria-hidden="true"></span>{{ p.status | escape }}</dd></div>
+          <div><dt>Contact</dt><dd><a href="mailto:{{ p.email | escape }}">{{ p.email | escape }}</a><br><a href="{{ p.github | escape }}">GitHub</a> &middot; <a href="{{ p.linkedin | escape }}">LinkedIn</a><br><a href="{{ p.resume | relative_url | escape }}">Resume (PDF)</a></dd></div>
+        </dl>
+      </aside>
+
+      <main class="content">
+{{ content }}
+      </main>
+    </div>

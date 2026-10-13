@@ -1,0 +1,82 @@
+# Experience page entries. Source: Nicolas_Rossi_Resume.pdf (sha256 57db5ab9…6ec2),
+# `pdftotext -layout` line numbers in comments. Bullets are the resume's words; only
+# range hyphens became en dashes and locations were dropped. Approved by Nick 2026-10-12.
+
+work:
+  - title: Co-Founder & Security Lead  # R:12-18
+    org: Corveonic LLC
+    when: Jul 2026 – Present
+    bullets:
+      - Co-founded an AI and workflow automation consultancy and delivered its first paid engagement for a mid-sized client.
+      - Built an append-only audit log in Supabase Postgres, enforced by a database trigger, so production data changes can’t be altered.
+      - Hardened client portal access with forced row-level security, short-lived scoped JWTs, secure session cookies, and security headers.
+      - Reviewed secret-manager audit logs for anomalous access and set a rotation schedule for production database credentials.
+      - Built a GitHub Actions gate using gitleaks and a custom Python linter that blocks pull requests containing secrets or PII.
+  - title: ITS Tech Zone & Client Support Office Student Assistant  # R:20-29
+    org: Pace University
+    when: Nov 2025 – Present
+    bullets:
+      - Create, document, and resolve walk-in support tickets in TeamDynamix (TDX) for 106 workstations across the Tech Zone and two computer classrooms, serving 20+ users per shift.
+      - Collected forensic artifacts with KAPE from a potentially compromised lab workstation with the ITS supervisor, then escalated the collection to Pace’s security team.
+      - Verify user identity before account unlocks and password resets, and resolve Microsoft 365 access issues.
+      - Troubleshoot hardware, network connectivity, and printing issues, escalating MFA lockouts and cases needing elevated permissions to senior IT staff.
+      - Recognized a phishing email from its indicators and routed the user to Pace’s security team for reporting.
+
+competitions:
+  - title: NSA Codebreaker Challenge  # R:32-33
+    when: Sep 2026 – Present
+    bullets:
+      - "Solved Tasks 1–3: log analysis, memory forensics with Volatility 3, and reverse engineering a binary with Ghidra."
+  - title: Collegiate Penetration Testing Competition (CPTC)  # R:34-35
+    when: Sep 2026 – Present
+    bullets:
+      - Advanced past the national qualifier to Regionals (Oct 24, 2026), contributing to Pace’s submitted technical assessment.
+  - title: Northeast Collegiate Cyber Defense Competition (NECCDC)  # R:36-38
+    when: Jan 2026 – Mar 2026
+    bullets:
+      - Advanced to Regionals representing Pace University. Managed Teleport for privileged access control and hardened Linux systems.
+      - Reviewed Teleport audit logs, active sessions, and session recordings for signs of red team activity.
+  - title: National Cyber League Competition (NCL)  # R:39-41
+    when: Oct 2025 – Nov 2025
+    bullets:
+      - "Ranked 639th/7,876 nationally (top 8% in the individual game) and 1st at Pace University. Strongest categories: log analysis, OSINT, password cracking, cryptography, and network traffic analysis."
+
+education:
+  - title: B.S. in Cybersecurity, Minor in Italian Studies  # R:5-9
+    org: Pace University, Seidenberg School of Computer Science and Information Systems
+    when: Dec 2027
+    bullets:
+      - "GPA: 3.89"
+      - Dean’s List First Honors, Spring 2025 – Spring 2026
+      - "Relevant Coursework: Digital Forensics, Secure Software Development & Analysis, Information Security Management, Database Management, Computer Organization, Object-Oriented Programming"
+
+projects:
+  - title: Phishing Domain Classifier  # R:44-48
+    url: /projects/phishing-domain-classifier/
+    org: github.com/NclRsi46/phishing-detection-ml
+    org_url: https://github.com/NclRsi46/phishing-detection-ml
+    when: Python, scikit-learn
+    bullets:
+      - Found that the first version’s 99.46% accuracy came from a data leak and rebuilt the pipeline to score domain names only.
+      - Redesigned evaluation with splits grouped by phishing campaign, time-based testing, and recall measured at fixed false-positive rates.
+      - Compared hand-built features with a character n-gram model and traced much of its gain to TLD abuse and phishing-kit wording reused across campaigns.
+
+skills:  # R:51-55
+  - group: Security & Forensics
+    items: KAPE, Volatility 3, Wireshark, tcpdump, Splunk, Windows Event Viewer, Ghidra, Burp Suite, OWASP ZAP, Nmap, gitleaks
+  - group: Platforms & DevSecOps
+    items: Supabase, PostgreSQL, GitHub Actions, Git, TeamDynamix
+  - group: Languages & Scripting
+    items: Python, SQL, Bash, PowerShell, Java, C, C++, C#, JavaScript, HTML, CSS
+  - group: Operating Systems
+    items: Windows 10/11, Linux (Kali/Ubuntu), macOS
+  - group: Certifications
+    items: ISC2 Certified in Cybersecurity (CC)
+
+organizations:  # R:57-60
+  - title: ISC2 Member
+    when: Jan 2026 – Present
+  - title: Pace Cybersecurity Club, Secretary
+    when: Apr 2026 – Present
+  - title: National Society of Leadership and Success, Member
+    when: Aug 2025 – Present

@@ -1,0 +1,9 @@
+#!/bin/sh
+# Render assets/img/og-card.png (1200x630) from script/og-card.html with headless
+# Chrome. Fonts load from assets/fonts by relative file:// path; no network.
+set -eu
+cd "$(dirname "$0")/.."
+CHROME="${CHROME:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}"
+"$CHROME" --headless --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
+  --virtual-time-budget=3000 --window-size=1200,630 \
+  --screenshot="$PWD/assets/img/og-card.png" "file://$PWD/script/og-card.html"

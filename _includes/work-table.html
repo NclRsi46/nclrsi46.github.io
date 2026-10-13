@@ -1,0 +1,12 @@
+<table>
+  <thead><tr><th scope="col">Type</th><th scope="col">Item</th><th scope="col">Detail</th></tr></thead>
+  <tbody>
+    {%- for row in include.rows %}
+    <tr>
+      <td class="code">{{ row.type | escape }}</td>
+      <td><h3>{% if row.url %}<a href="{{ row.url | relative_url | escape }}">{{ row.title | escape }}</a>{% else %}{{ row.title | escape }}{% endif %}</h3><p>{{ row.text | escape }}</p></td>
+      <td class="code">{{ row.detail | escape }}</td>
+    </tr>
+    {%- endfor %}
+  </tbody>
+</table>
