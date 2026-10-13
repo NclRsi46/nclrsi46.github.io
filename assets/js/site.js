@@ -24,13 +24,14 @@
     document.querySelectorAll("[data-copy]").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var status = btn.parentNode.querySelector("[data-copy-status]");
-        function show(msg) {
+        function show(msg, ok) {
           if (!status) return;
           status.textContent = msg;
+          status.toggleAttribute("data-ok", ok); // accent for "Copied" only (DESIGN.md emphasis budget)
           setTimeout(function () { status.textContent = ""; }, 2000);
         }
         // Browsers can deny clipboard writes (permissions, embedded frames); say so instead of failing silently.
-        navigator.clipboard.writeText(btn.getAttribute("data-copy")).then(function () { show("Copied"); }, function () { show("Copy failed"); });
+        navigator.clipboard.writeText(btn.getAttribute("data-copy")).then(function () { show("Copied", true); }, function () { show("Copy failed", false); });
       });
     });
   });
