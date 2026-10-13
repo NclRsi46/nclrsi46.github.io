@@ -43,6 +43,7 @@ Fonts are self-hosted WOFF2 under `assets/fonts/` with their OFL licenses. Nothi
 - Home: the profile sidebar (17rem, sticky) beside the content from 56rem up, stacked below that.
 - Inner pages (`_layouts/page.html`): a header block of ruled cells (photo, title, then key/value cells from `kv:` front matter), then numbered sections. With no `kv:` cells the block drops to two columns (`.block-short`).
 - Key/value rows (`dl.rows`, Contact): a mono label column of 9.5rem beside the value from 40rem up, stacked below that, with hairline rules between rows.
+- Dated entries (`.entry`, Experience) use the same grid as `dl.rows`: a muted mono date (or tech) column of 9.5rem, then a serif item heading, a muted org line, and a Plex Sans bullet list capped at 42rem with muted markers. Header `kv:` cells may set `link:` to render the profile value as a link with that text.
 - A section head is a mono accent number (`01`) plus a serif heading over a 2px ink rule.
 - Tables are ruled with hairlines. Under 40rem each row becomes a stacked block and the header row is visually hidden.
 

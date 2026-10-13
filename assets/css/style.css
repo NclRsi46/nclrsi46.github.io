@@ -108,6 +108,16 @@ section { margin-top: 2.5rem; }
 @media (min-width: 40rem) { .rows > div { grid-template-columns: 9.5rem minmax(0, 1fr); align-items: baseline; } }
 .rows dd { margin: 0; display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: baseline; }
 
+/* Dated entries (Experience): the .rows grid with a heading and a list */
+.entry { display: grid; gap: .25rem 1.5rem; padding: .9rem 0; border-bottom: 1px solid var(--rule); }
+@media (min-width: 40rem) { .entry { grid-template-columns: 9.5rem minmax(0, 1fr); } }
+.entry > .code { color: var(--muted); margin: 0; padding-top: .3rem; }
+.entry h3 { font-family: var(--serif); font-size: 1.1875rem; font-weight: 500; margin: 0; }
+.entry .org { margin: .1rem 0 0; color: var(--muted); font-size: .9375rem; line-height: 1.5; }
+.entry ul { margin: .5rem 0 0; padding-left: 1.1rem; max-width: 42rem; }
+.entry li + li { margin-top: .35rem; }
+.entry li::marker { color: var(--muted); }
+
 /* Ruled table; stacks under 40rem */
 table { width: 100%; border-collapse: collapse; }
 th { text-align: left; padding: .6rem .75rem .6rem 0; border-bottom: 1px solid var(--rule); }

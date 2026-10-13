@@ -12,7 +12,7 @@ layout: default
           <p>{{ lede | escape }}</p>
         </div>
         {%- for item in page.kv %}
-        <div class="kv"><span class="k">{{ item.label | escape }}</span><p class="v">{{ p[item.from] | escape }}</p></div>
+        <div class="kv"><span class="k">{{ item.label | escape }}</span><p class="v">{% if item.link %}<a href="{{ p[item.from] | relative_url }}">{{ item.link | escape }}</a>{% else %}{{ p[item.from] | escape }}{% endif %}</p></div>
         {%- endfor %}
       </div>
 {{ content }}
