@@ -2,15 +2,17 @@
 """Diff the resume PDF's facts against the built Experience page. Stdlib + pdftotext.
 
 1. Every fact unit on _site/resume.html (bullet, heading, org line, date cell,
-   skill group and list) must appear in the PDF text.
+   skill group and list) must appear in the PDF text, and each entry's date and
+   org line must sit next to its heading there (so swapped dates fail).
 2. Every bullet in the PDF must appear on the page.
-3. Every number on every page must appear in the PDF or in one of the --source
-   files (the phishing README, for the case study).
+3. Every number on every page (all visible text, <title>, and description/og
+   meta) must appear in the PDF or in one of the --source files.
 
 Both sides are normalized first: curly quotes, en dashes, commas, and whitespace.
 Usage: script/check-resume.py [--source path ...]
 """
 import argparse
+import html
 import re
 import subprocess
 import sys
@@ -69,6 +71,53 @@ class Units(HTMLParser):
                 self.stack[-1][2].append(data)
 
 
+class FullText(HTMLParser):
+    """All visible text of a page plus <title> and description/og meta, minus .lbl labels."""
+    VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
+    META = {"description", "og:title", "og:description", "og:image:alt"}
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.stack, self.text = [], []  # stack of (tag, skip)
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if tag == "meta" and (a.get("name") or a.get("property")) in self.META:
+            self.text.append(a.get("content") or "")
+        if tag in self.VOID:
+            return
+        skip = tag in ("script", "style") or "lbl" in (a.get("class") or "").split()
+        self.stack.append((tag, skip))
+
+    def handle_endtag(self, tag):
+        while self.stack:
+            if self.stack.pop()[0] == tag:
+                break
+
+    def handle_data(self, data):
+        if not any(skip for _, skip in self.stack):
+            self.text.append(data)
+
+
+def entries(page_html):
+    """(heading, date cell, org line) for each .entry on the page."""
+    out = []
+    for block in re.split(r'<div class="entry">', page_html)[1:]:
+        def field(pat):
+            m = re.search(pat, block, re.S)
+            return norm(html.unescape(re.sub(r"<[^>]+>", "", m.group(1)))) if m else ""
+        out.append((field(r"<h3>(.*?)</h3>"), field(r'<p class="code">(.*?)</p>'), field(r'<p class="org">(.*?)</p>')))
+    return out
+
+
+def near(pdf, a, b, gap=60):
+    """a and b both occur in the PDF text within gap characters of each other, either order."""
+    if not a or not b:
+        return True
+    ea, eb = re.escape(a), re.escape(b)
+    return re.search(f"{ea}.{{0,{gap}}}?{eb}|{eb}.{{0,{gap}}}?{ea}", pdf) is not None
+
+
 def pdf_text(pdf):
     out = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], check=True, capture_output=True, text=True).stdout
     return out
@@ -108,8 +157,9 @@ def main():
     pdf = norm(raw)
     failures = 0
 
+    resume_html = Path(args.site, "resume.html").read_text(encoding="utf-8")
     page = Units()
-    page.feed(Path(args.site, "resume.html").read_text(encoding="utf-8"))
+    page.feed(resume_html)
     page_text = norm(" ".join(page.text))
     units = [norm(u) for u in page.units if norm(u)]
     missing = [u for u in units if u not in pdf]
@@ -117,6 +167,13 @@ def main():
     for u in missing:
         print(f"    NOT IN PDF: {u}")
     failures += len(missing)
+
+    pairs = entries(resume_html)
+    unpaired = [f"{t} / {w} / {o}" for t, w, o in pairs if not (near(pdf, t, w) and near(pdf, t, o))]
+    print(f"[1b] Entry date and org beside their heading in the PDF: {len(pairs)} entries, {len(unpaired)} mismatched")
+    for u in unpaired:
+        print(f"    MISPAIRED: {u}")
+    failures += len(unpaired)
 
     bullets = [norm(b) for b in pdf_bullets(raw)]
     absent = [b for b in bullets if b not in page_text]
@@ -130,7 +187,7 @@ def main():
     bad = []
     total = 0
     for f in sorted(Path(args.site).rglob("*.html")):
-        u = Units()
+        u = FullText()
         u.feed(f.read_text(encoding="utf-8"))
         for n in sorted(set(NUM.findall(URLISH.sub(" ", norm(" ".join(u.text)))))):
             total += 1
