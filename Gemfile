@@ -5,4 +5,4 @@
 # Keep this pin equal to https://pages.github.com/versions.json.
 source "https://rubygems.org"
 
-gem "github-pages", "= 232"
+gem "github-pages", "= 232", group: :jekyll_plugins
