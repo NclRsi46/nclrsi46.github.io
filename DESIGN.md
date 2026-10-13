@@ -34,6 +34,8 @@ Contrast on `--bg` (WCAG 2.2): ink 14.66 / 14.20, muted 5.90 / 6.67, accent 6.56
 
 Faces actually used: Plex Sans 400, Plex Mono 400, Newsreader 400 and 500 (roman only). Don't ship other weights or italics until a page uses them.
 
+`script/og-card.html` repeats the light token values because it renders standalone in headless Chrome; change it with any light token and rerun `script/og-card`.
+
 Fonts are self-hosted WOFF2 under `assets/fonts/` with their OFL licenses. Nothing loads from a third-party origin.
 
 ## Layout
@@ -76,7 +78,7 @@ Nothing else: no scroll-triggered animation, parallax, typing effects, or hover 
 
 - Always a circle, background removed, never a square ID photo. `object-position: 50% 20%` on the `--surface` backdrop.
 - Home: 6rem on phones, 11rem from 56rem up. Ring = 1px `--rule`, a 6px `--bg` gap, then 1px `--accent`.
-- Inner page header: 7.5rem (5.5rem under 52rem) with a 1px `--rule` ring only.
+- Inner page header: 7.5rem (5.5rem under 52rem; queries use `max-width: 51.99rem` so the two never overlap) with a 1px `--rule` ring only.
 - Alt text "Nicolas Rossi". Strip all metadata except the sRGB ICC profile.
 
 ## JavaScript
