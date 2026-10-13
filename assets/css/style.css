@@ -50,7 +50,6 @@
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans);
   font-size: 1.0625rem; line-height: 1.6; overflow-wrap: break-word; }
-.theme-anim, .theme-anim * { transition: background-color .3s ease, color .3s ease, border-color .3s ease; }
 .sheet { max-width: 68rem; margin: 1.5rem auto 3rem; padding: 0 1rem; }
 @media (min-width: 48rem) { .sheet { margin-top: 2.5rem; padding: 0 2rem; } }
 
@@ -164,4 +163,5 @@ footer a { color: var(--muted); }
   main { animation: rise .4s ease-out both; }
   @keyframes rise { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
   a, button { transition: color .15s ease, border-color .15s ease; }
+  .theme-anim, .theme-anim * { transition: background-color .3s ease, color .3s ease, border-color .3s ease; }
 }
