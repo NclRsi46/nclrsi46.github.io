@@ -22,7 +22,7 @@ The first version scored full URLs with a Random Forest and reported 99.46% accu
 
 None of it meant anything. Every benign example was a popular domain from the Tranco list with https:// in front of it, a bare homepage, while 97.0% of the phishing URLs from PhishTank had something after the host. The model learned that anything after the domain means phishing: the slash count alone carried 60% of its feature importance. It gave en.wikipedia.org/wiki/Phishing a phishing score of 1.00 and paypal-login-secure.com 0.11.
 
-The split leaked too. Only 5,875 of 47,994 phishing URLs had a distinct registered domain, so the same domain landed in both train and test, and the evaluation script scored the model on its own training rows.
+The split leaked too. PhishTank often lists many URLs on one domain, so the same domain landed in both train and test, and the evaluation script scored the model on the full dataset, training rows included.
 </div>
 </section>
 
