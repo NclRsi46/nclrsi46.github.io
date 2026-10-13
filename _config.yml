@@ -1,0 +1,20 @@
+title: Nicolas Rossi
+description: Cybersecurity student at Pace focused on digital forensics and incident response, with offensive experience from CPTC.
+url: https://nclrsi46.github.io
+baseurl: ""
+lang: en
+
+# Pages defaults to jekyll-theme-primer, which injects assets/css/style.scss.
+# null disables it (pages-gem v232 lib/github-pages/configuration.rb).
+theme: null
+
+# GitHub Pages turns on jekyll-optional-front-matter and jekyll-readme-index by
+# default (pages-gem v232 lib/github-pages/plugins.rb), which would publish every
+# Markdown file. Repo docs and tooling stay out of the build.
+exclude:
+  - README.md
+  - DESIGN.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - script

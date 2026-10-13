@@ -1,0 +1,10 @@
+#!/bin/sh
+# Build the site the way GitHub Pages does: Ruby 3.3, the github-pages
+# executable (not plain `jekyll build`), production env, UTF-8 locale.
+# See actions/jekyll-build-pages v1.0.13 Dockerfile and entrypoint.sh.
+set -eu
+cd "$(dirname "$0")/.."
+RUBY_BIN="${RUBY_BIN:-/opt/homebrew/opt/ruby@3.3/bin}"
+export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 JEKYLL_ENV=production
+rm -rf _site
+exec "$RUBY_BIN/bundle" exec github-pages build --source . --destination _site "$@"
