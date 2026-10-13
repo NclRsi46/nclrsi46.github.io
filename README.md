@@ -19,3 +19,14 @@ script/build
 ## Social card
 
 `assets/img/og-card.png` (1200×630) is rendered from `script/og-card.html` by `script/og-card` with headless Chrome. Rerun it after changing the name or tagline.
+
+## Checks
+
+After `script/build`:
+
+```sh
+python3 script/check-links.py                       # every internal link and #fragment resolves
+python3 script/check-resume.py --source ../phishing-detection-ml/README.md   # resume PDF facts vs. the Experience page; every number has a source
+```
+
+Both exit 1 on failure. Rerun `check-resume.py` whenever the resume PDF changes.
