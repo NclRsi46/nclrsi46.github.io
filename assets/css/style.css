@@ -1,0 +1,150 @@
+/* C4. Spec: DESIGN.md. Change tokens only in the three :root blocks. */
+/* Self-hosted fonts (DESIGN.md "Type"). Plex: IBM's own unmodified split subsets, unicode-range copied from
+   their CSS (Reserved Font Name "Plex", so never subset or rebuild these). Newsreader: upstream variable file. */
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/ibm-plex-sans/IBMPlexSans-Regular-Latin1.woff2") format("woff2");
+  unicode-range: U+0000, U+000D, U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+2122, U+2212, U+FB01-FB02; }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/ibm-plex-sans/IBMPlexSans-Regular-Latin2.woff2") format("woff2");
+  unicode-range: U+0100-0101, U+0104-0130, U+0132-0151, U+0154-017F, U+018F, U+0192, U+01A0-01A1, U+01AF-01B0, U+01FA-01FF, U+0218-021B, U+0237, U+0259, U+1E80-1E85, U+1E9E, U+20A1, U+20A4, U+20A6, U+20A8-20AA, U+20AD-20AE, U+20B1-20B2, U+20B4-20B5, U+20B8-20BA, U+20BD, U+20BF; }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/ibm-plex-sans/IBMPlexSans-Regular-Latin3.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+01CD-01DC, U+1EA0-1EF9, U+20AB; }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/ibm-plex-sans/IBMPlexSans-Regular-Pi.woff2") format("woff2");
+  unicode-range: U+0E3F, U+2000-200D, U+2015, U+2028-2029, U+202F, U+2032-2033, U+2070, U+2074-2079, U+2080-2089, U+2113, U+2116, U+2126, U+212E, U+2150-2151, U+2153-215E, U+2190-2199, U+21A9-21AA, U+21B0-21B3, U+21B6-21B7, U+21BA-21BB, U+21C4, U+21C6, U+2202, U+2206, U+220F, U+2211, U+2215, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+2713, U+274C, U+2B0E-2B11, U+ECE0, U+EFCC, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/ibm-plex-mono/IBMPlexMono-Regular-Latin1.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+2122, U+2212, U+FB01-FB02; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/ibm-plex-mono/IBMPlexMono-Regular-Latin2.woff2") format("woff2");
+  unicode-range: U+0100-0101, U+0104-0130, U+0132-0151, U+0154-017F, U+018F, U+0192, U+01A0-01A1, U+01AF-01B0, U+01FA-01FF, U+0218-021B, U+0237, U+0259, U+1E80-1E85, U+1E9E, U+20A1, U+20A4, U+20A6, U+20A8-20AA, U+20AD-20AE, U+20B1-20B2, U+20B4-20B5, U+20B8-20BA, U+20BD, U+20BF; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/ibm-plex-mono/IBMPlexMono-Regular-Latin3.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+01CD-01DC, U+1E0C-1E0D, U+1E12-1E13, U+1E24-1E25, U+1E36-1E37, U+1E3C-1E3D, U+1E40-1E47, U+1E4A-1E4B, U+1E62-1E63, U+1E6C-1E6D, U+1E70-1E71, U+1E92-1E93, U+1EA0-1EF9, U+20AB; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/ibm-plex-mono/IBMPlexMono-Regular-Pi.woff2") format("woff2");
+  unicode-range: U+03C0, U+0E3F, U+2000-200D, U+2010-2012, U+2015, U+2028-2029, U+202F, U+2032-2033, U+203E, U+205F, U+2070, U+2074-2079, U+2080-2089, U+2113, U+2116, U+2126, U+212E, U+2150-2151, U+2153-215E, U+2190-2199, U+21A9-21AA, U+21B0-21B3, U+21B6-21B7, U+21BA-21BB, U+21C4, U+21C6, U+2202, U+2206, U+220F, U+2211, U+2215, U+2219-221A, U+221E, U+222B, U+2236, U+2248, U+2260, U+2264-2265, U+2400-2421, U+2500-259F, U+25CA, U+2713, U+274C, U+2B0E-2B11, U+3000, U+FEFF, U+FFFD; }
+@font-face { font-family: "Newsreader"; font-style: normal; font-weight: 200 800; font-display: swap;
+  src: url("../fonts/newsreader/Newsreader-opsz-wght.woff2") format("woff2"); }
+
+:root {
+  --bg: #F4EFE0; --surface: #FBF8EE; --ink: #1E1D1A; --muted: #5F5B50; --rule: #BDB6A0; --accent: #1F5F46;
+  --serif: "Newsreader", Georgia, serif;
+  --sans: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #181612; --surface: #211E18; --ink: #E9E4D3; --muted: #A39D8A; --rule: #3C382D; --accent: #7FC4A0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #181612; --surface: #211E18; --ink: #E9E4D3; --muted: #A39D8A; --rule: #3C382D; --accent: #7FC4A0;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans);
+  font-size: 1.0625rem; line-height: 1.6; overflow-wrap: break-word; }
+.theme-anim, .theme-anim * { transition: background-color .3s ease, color .3s ease, border-color .3s ease; }
+.sheet { max-width: 68rem; margin: 1.5rem auto 3rem; padding: 0 1rem; }
+@media (min-width: 48rem) { .sheet { margin-top: 2.5rem; padding: 0 2rem; } }
+
+/* Labels */
+.lbl, button, footer, th, .k, .code, .profile dt { font-family: var(--mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
+.lbl, .k, th, .profile dt { color: var(--muted); font-weight: 400; }
+
+/* Header strip */
+.strip { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.25rem; border: 1px solid var(--rule); border-bottom: 0; padding: .6rem .9rem; background: var(--surface); }
+.strip .code { color: var(--ink); margin-right: auto; }
+.site-nav { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; margin: 0; padding: 0; list-style: none; }
+.site-nav a { color: var(--muted); text-decoration: none; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--ink); }
+.site-nav a[aria-current="page"]::before { content: "\25B8 "; color: var(--accent); }
+button { background: none; border: 1px solid var(--rule); color: var(--muted); padding: .2rem .5rem; cursor: pointer; border-radius: 0; }
+button:hover { color: var(--ink); border-color: var(--muted); }
+
+/* Inner-page header block: ruled cells */
+.block { display: grid; border: 1px solid var(--rule); grid-template-columns: minmax(0, 1fr); }
+.block > * { padding: 1rem .9rem; border-bottom: 1px solid var(--rule); }
+.block > *:last-child { border-bottom: 0; }
+@media (min-width: 52rem) {
+  .block { grid-template-columns: 9.5rem minmax(0, 1fr) minmax(0, 1fr); }
+  .block > * { border-bottom: 0; border-right: 1px solid var(--rule); }
+  .block > *:last-child { border-right: 0; }
+  .block .title, .block .photo { grid-row: span 2; }
+  .block .kv { border-top: 1px solid var(--rule); }
+  .block .kv:nth-of-type(1) { border-top: 0; }
+}
+.photo { display: flex; align-items: center; justify-content: center; }
+.photo img { display: block; width: 7.5rem; height: 7.5rem; border-radius: 50%; object-fit: cover; object-position: 50% 20%;
+  background: var(--surface); box-shadow: 0 0 0 1px var(--rule); }
+@media (max-width: 52rem) {
+  .block .photo { justify-content: flex-start; padding: .75rem .9rem; }
+  .photo img { width: 5.5rem; height: 5.5rem; }
+}
+.title h1 { font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.02; font-weight: 400; letter-spacing: -.02em; margin: .35rem 0 .75rem; }
+.title p { margin: 0; max-width: 32rem; }
+.kv .v { margin: .25rem 0 0; font-size: .9375rem; line-height: 1.5; }
+.status { display: inline-block; width: .5rem; height: .5rem; border-radius: 50%; background: var(--accent); margin-right: .4rem; vertical-align: .1em; }
+
+/* Sections */
+section { margin-top: 2.5rem; }
+.sec-head { display: flex; gap: .75rem; align-items: baseline; border-bottom: 2px solid var(--ink); padding-bottom: .4rem; margin: 0; }
+.sec-head .lbl { color: var(--accent); }
+.sec-head h2 { font-family: var(--serif); font-size: 1.25rem; font-weight: 500; margin: 0; }
+.prose { max-width: 40rem; }
+.prose p { margin: 1rem 0 0; }
+.prose p, .title p, td p { font-family: var(--serif); font-size: 1.125rem; line-height: 1.55; }
+
+/* Ruled table; stacks under 40rem */
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; padding: .6rem .75rem .6rem 0; border-bottom: 1px solid var(--rule); }
+td { vertical-align: top; padding: .9rem .75rem .9rem 0; border-bottom: 1px solid var(--rule); }
+td.code { color: var(--muted); white-space: nowrap; padding-top: 1.05rem; }
+td h3 { font-family: var(--serif); font-size: 1.1875rem; font-weight: 500; margin: 0 0 .2rem; }
+td p { margin: 0; color: var(--ink); }
+@media (max-width: 40rem) {
+  thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  tr, td { display: block; }
+  tr { border-bottom: 1px solid var(--rule); padding: .9rem 0; }
+  td { border: 0; padding: 0 0 .25rem; }
+  td.code { padding-top: 0; }
+}
+
+/* Home: profile sidebar + content */
+.layout { display: grid; gap: 2rem; border: 1px solid var(--rule); border-top: 0; padding: 1.5rem .9rem; }
+@media (min-width: 56rem) { .layout { grid-template-columns: 17rem minmax(0, 1fr); gap: 0; padding: 0; } }
+.profile { display: grid; gap: 1rem; align-content: start; }
+@media (min-width: 56rem) { .profile { position: sticky; top: 0; align-self: start; padding: 2rem 1.5rem; border-right: 1px solid var(--rule); min-height: 100%; } }
+.profile .face { width: 6rem; height: 6rem; border-radius: 50%; object-fit: cover; object-position: 50% 20%; background: var(--surface);
+  box-shadow: 0 0 0 1px var(--rule), 0 0 0 6px var(--bg), 0 0 0 7px var(--accent); margin: 7px; }
+@media (min-width: 56rem) { .profile .face { width: 11rem; height: 11rem; margin: 7px auto 7px 7px; } }
+.profile .who h1 { font-family: var(--serif); font-size: 2.25rem; font-weight: 400; letter-spacing: -.02em; line-height: 1.1; margin: .25rem 0 .1rem; }
+.profile .who .pron { color: var(--muted); font-size: .9375rem; }
+.profile dl { margin: 0; display: grid; gap: .9rem; }
+.profile dd { margin: .15rem 0 0; font-size: .9375rem; line-height: 1.5; }
+.content { min-width: 0; }
+@media (min-width: 56rem) { .content { padding: 2rem 1.75rem 2.5rem; } }
+.content section:first-child { margin-top: 0; }
+.content .intro { font-family: var(--serif); font-size: 1.375rem; line-height: 1.45; max-width: 36rem; margin: 0 0 .5rem; }
+.intro + .sec-head { margin-top: 2rem; }
+
+/* Links, focus, footer */
+a { color: var(--ink); text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .2em; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+footer { margin-top: 3rem; border-top: 2px solid var(--ink); padding-top: .75rem; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; align-items: center; color: var(--muted); }
+footer a { color: var(--muted); }
+[data-copy-status] { color: var(--accent); }
+
+/* Motion budget: DESIGN.md */
+@media (prefers-reduced-motion: no-preference) {
+  main { animation: rise .4s ease-out both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+  a, button { transition: color .15s ease, border-color .15s ease; }
+}

@@ -1,0 +1,12 @@
+
+    <header class="strip">
+      <span class="code">N. Rossi / Cybersecurity</span>
+      <nav aria-label="Site">
+        <ul class="site-nav">
+          {%- for item in site.data.nav %}
+          <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+      <button type="button" data-theme-toggle hidden>Theme: system</button>
+    </header>
